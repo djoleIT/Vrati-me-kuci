@@ -1,8 +1,6 @@
 import { supabaseAdmin } from "@/lib/supabase-admin";
 import SiteHeader from "@/components/SiteHeader";
 
-export const metadata = { robots: { index: false, follow: false } };
-
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const db = supabaseAdmin();
