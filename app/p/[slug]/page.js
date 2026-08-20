@@ -1,4 +1,4 @@
-import { supabaseAdmin } from "@/lib/supabase-admin";
+\import { supabaseAdmin } from "@/lib/supabase-admin";
 import SiteHeader from "@/components/SiteHeader";
 
 export async function generateMetadata({ params }) {
