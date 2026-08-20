@@ -156,10 +156,12 @@ export default function Home() {
               </div>
             </div>
             <div className="togglerow" style={{ marginBottom: 20 }}>
-              <span>{t.showAddress}</span>
-              <div className={`switch ${form.showAddressPublic ? "on" : ""}`} onClick={() => setForm({ ...form, showAddressPublic: !form.showAddressPublic })}>
-                <div className="knob" />
-              </div>
+              <span id="addr-toggle-label">{t.showAddress}</span>
+              <Switch
+                labelledBy="addr-toggle-label"
+                on={form.showAddressPublic}
+                onToggle={() => setForm({ ...form, showAddressPublic: !form.showAddressPublic })}
+              />
             </div>
 
             {error && <div className="error">{error}</div>}
@@ -201,10 +203,32 @@ export default function Home() {
 }
 
 function Toggle({ label, on, onClick }) {
+  const id = React.useId();
   return (
     <div className="togglerow">
-      <span>{label}</span>
-      <div className={`switch ${on ? "on" : ""}`} onClick={onClick}><div className="knob" /></div>
+      <span id={id}>{label}</span>
+      <Switch labelledBy={id} on={on} onToggle={onClick} />
+    </div>
+  );
+}
+
+function Switch({ on, onToggle, labelledBy }) {
+  return (
+    <div
+      className={`switch ${on ? "on" : ""}`}
+      role="switch"
+      aria-checked={on}
+      aria-labelledby={labelledBy}
+      tabIndex={0}
+      onClick={onToggle}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onToggle();
+        }
+      }}
+    >
+      <div className="knob" />
     </div>
   );
 }

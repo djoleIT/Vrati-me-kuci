@@ -58,6 +58,7 @@ input:focus, textarea:focus, select:focus{ outline:2px solid var(--brass); outli
 .togglerow span{ font-size:13.5px; }
 .switch{ width:38px; height:22px; border-radius:20px; border:1px solid var(--line); background:var(--ink); position:relative; cursor:pointer; flex-shrink:0;}
 .switch.on{ background:var(--teal); border-color:var(--teal); }
+.switch:focus-visible{ outline:2px solid var(--brass); outline-offset:2px; }
 .switch .knob{ position:absolute; top:2px; left:2px; width:16px; height:16px; border-radius:50%; background:var(--paper); transition:transform .15s; }
 .switch.on .knob{ transform:translateX(16px); }
 
