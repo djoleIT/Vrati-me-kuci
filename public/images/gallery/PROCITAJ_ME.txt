@@ -1,0 +1,6 @@
+Kad dobiješ prave slike pasa sa privezkom, samo ih nazovi:
+  1.jpg
+  2.jpg
+  3.jpg
+i stavi ih u ovaj folder (public/images/gallery/), pregazi ovaj fajl.
+Sajt će ih automatski prikazati umesto placeholder ilustracije — ne treba dirati kod.
